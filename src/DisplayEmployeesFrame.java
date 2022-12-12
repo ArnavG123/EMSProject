@@ -81,15 +81,16 @@ public class DisplayEmployeesFrame extends javax.swing.JFrame {
     private void displayButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayButtonActionPerformed
         int rowIndex =0;
         DefaultTableModel model = (DefaultTableModel) employeeAttributes.getModel();
+        model.setRowCount(0);
         for (ArrayList<EmployeeInfo> bucket : theHT.buckets) {
             for (int j = 0; j < bucket.size(); j++) {
                 EmployeeInfo targetEmp = bucket.get(j);
                 if (targetEmp instanceof FTE targetFTE){
                     model.addRow(new Object[]{"FTE",targetFTE.getEmpNumber(), targetFTE.getFirstName(), targetFTE.getLastName(),
-                    targetFTE.getGender(), targetFTE.getSalary(), "-1", "-1", targetFTE.getDeductRate()});
+                    targetFTE.getGender(), targetFTE.getWorkLoc(), targetFTE.getSalary(), "-1", "-1", targetFTE.getDeductRate()});
                 } else if (targetEmp instanceof PTE targetPTE) {
                     model.addRow(new Object[]{"PTE",targetPTE.getEmpNumber(), targetPTE.getFirstName(), targetPTE.getLastName(),
-                    targetPTE.getGender(),targetPTE.getHourlyWage(), targetPTE.getHoursPerWeek(), targetPTE.getWeeksPerYear(), targetEmp.getDeductRate()});
+                    targetPTE.getGender(),targetPTE.getWorkLoc(), targetPTE.getHourlyWage(), targetPTE.getHoursPerWeek(), targetPTE.getWeeksPerYear(), targetEmp.getDeductRate()});
                     
                 }
                 rowIndex++;

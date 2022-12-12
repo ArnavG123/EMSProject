@@ -39,6 +39,7 @@
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="displayEmpsButton" min="-2" pref="121" max="-2" attributes="0"/>
                   <Component id="saveToFileButtons" min="-2" pref="121" max="-2" attributes="0"/>
+                  <Component id="loadFromFileButton" min="-2" pref="121" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -60,7 +61,10 @@
                   <Component id="saveToFileButtons" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="editEmpButton" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="editEmpButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="loadFromFileButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="94" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -114,6 +118,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveToFileButtonsActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="loadFromFileButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Load From File"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="loadFromFileButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

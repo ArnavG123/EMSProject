@@ -20,7 +20,12 @@ public class PTE extends EmployeeInfo {
 
 
 	public void setHourlyWage(double hourlyWage) {
-            this.hourlyWage = hourlyWage;
+            if (hourlyWage < 0){
+                this.hourlyWage = 0;
+            } else {
+                this.hourlyWage = hourlyWage;
+            }
+            
 	}
         
         public double getHoursPerWeek() {

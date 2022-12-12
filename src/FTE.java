@@ -15,7 +15,11 @@ public class FTE extends EmployeeInfo {
         }
         
         public void setSalary(double salary) {
-        this.salary = salary;
+            if (salary < 0){
+                this.salary = 0;
+            } else {
+                this.salary = salary;
+            }
         }
         
         @Override

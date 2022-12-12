@@ -34,6 +34,7 @@ public class MenuFrame extends javax.swing.JFrame {
         editEmpButton = new javax.swing.JButton();
         displayEmpsButton = new javax.swing.JButton();
         saveToFileButtons = new javax.swing.JButton();
+        loadFromFileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +77,13 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
+        loadFromFileButton.setText("Load From File");
+        loadFromFileButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loadFromFileButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -93,7 +101,8 @@ public class MenuFrame extends javax.swing.JFrame {
                 .addGap(203, 203, 203)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(displayEmpsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveToFileButtons, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(saveToFileButtons, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loadFromFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -110,7 +119,9 @@ public class MenuFrame extends javax.swing.JFrame {
                     .addComponent(deleteEmpButton)
                     .addComponent(saveToFileButtons))
                 .addGap(40, 40, 40)
-                .addComponent(editEmpButton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(editEmpButton)
+                    .addComponent(loadFromFileButton))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
@@ -142,8 +153,16 @@ public class MenuFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_displayEmpsButtonActionPerformed
 
     private void saveToFileButtonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveToFileButtonsActionPerformed
-        theHT.saveToFile();
+        SaveToFileFrame theSaveFrame = new SaveToFileFrame();
+        theSaveFrame.setVisible(true);
+        theSaveFrame.setHashTable(theHT);
     }//GEN-LAST:event_saveToFileButtonsActionPerformed
+
+    private void loadFromFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loadFromFileButtonActionPerformed
+        LoadEmpsFrame theLoadFrame = new LoadEmpsFrame();
+        theLoadFrame.setVisible(true);
+        theLoadFrame.setHashTable(theHT);
+    }//GEN-LAST:event_loadFromFileButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,6 +204,7 @@ public class MenuFrame extends javax.swing.JFrame {
     private javax.swing.JButton deleteEmpButton;
     private javax.swing.JButton displayEmpsButton;
     private javax.swing.JButton editEmpButton;
+    private javax.swing.JButton loadFromFileButton;
     private javax.swing.JButton saveToFileButtons;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

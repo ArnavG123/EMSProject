@@ -92,38 +92,5 @@ public class MyHashTable {
 		
 	}
         
-        public String saveToFile(){
-            LocalDateTime now = LocalDateTime.now();
-            DateTimeFormatter dateTimeFormat = DateTimeFormatter.ofPattern("yyyy.MM.dd HH,mm,SS");
-            String directory = System.getProperty("user.dir");
-            String fileName = "SaveEMS"+dateTimeFormat.format(now)+".txt";
-            
-            File myFile = new File(directory, fileName);
-            try {
-                myFile.createNewFile();
-                FileWriter fileWriter = new FileWriter(fileName);
-                for (ArrayList<EmployeeInfo> bucket : buckets) {
-                    for (int j = 0; j < bucket.size(); j++) {
-                        if (bucket.get(j) instanceof FTE targetFTE) {
-                            String fileContent = "FTE " + targetFTE.getEmpNumber() + " " + targetFTE.getFirstName() + " " + 
-                                    targetFTE.getLastName() + " " + targetFTE.getWorkLoc() + " " + targetFTE.getDeductRate()
-                                    + " " + targetFTE.getSalary() + " " + targetFTE.getGender();
-                            fileWriter.write(fileContent);
-                        } else if (bucket.get(j) instanceof PTE targetPTE){
-                            String fileContent = "PTE " + targetPTE.getEmpNumber() + " " + targetPTE.getFirstName() + " " + 
-                                    targetPTE.getLastName() + " " + targetPTE.getWorkLoc() + " " + targetPTE.getDeductRate()
-                                    + " " + targetPTE.getHourlyWage() + " " + targetPTE.getHoursPerWeek() + " " + targetPTE.getWeeksPerYear() + targetPTE.getGender();
-                            fileWriter.write(fileContent);
-                        }
-                    }
-                }
-                
-                fileWriter.close();
-                return "File created: " + myFile.getName();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return "An error occurred.";
-                               
-            }
-        }
+        
 }
