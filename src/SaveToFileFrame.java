@@ -38,6 +38,7 @@ public class SaveToFileFrame extends javax.swing.JFrame {
         infoLabel = new javax.swing.JLabel();
         saveEmpButton = new javax.swing.JButton();
         feedbackLabel = new javax.swing.JLabel();
+        infoLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,26 +58,32 @@ public class SaveToFileFrame extends javax.swing.JFrame {
         feedbackLabel.setText("<Msg>");
         feedbackLabel.setMaximumSize(new java.awt.Dimension(100, 100));
 
+        infoLabel1.setText("Files are stored along with files of this application");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(titleLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(infoLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(149, 149, 149)
-                        .addComponent(saveEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(feedbackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(172, 172, 172)
+                .addComponent(saveEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(infoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(titleLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(infoLabel1)
+                .addGap(77, 77, 77))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,9 +94,11 @@ public class SaveToFileFrame extends javax.swing.JFrame {
                 .addComponent(infoLabel)
                 .addGap(18, 18, 18)
                 .addComponent(saveEmpButton)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
                 .addComponent(feedbackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoLabel1)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
@@ -108,15 +117,15 @@ public class SaveToFileFrame extends javax.swing.JFrame {
             for (ArrayList<EmployeeInfo> bucket : theHT.buckets) {
                 for (int j = 0; j < bucket.size(); j++) {
                     if (bucket.get(j) instanceof FTE targetFTE) {
-                        String fileContent = "FTE " + targetFTE.getEmpNumber() + " " + targetFTE.getFirstName() + " " + 
-                                targetFTE.getLastName() + " " + targetFTE.getWorkLoc() + " " + targetFTE.getDeductRate()
-                                + " " + targetFTE.getSalary() + " " + targetFTE.getGender();
-                        fileWriter.write(fileContent);
+                        String fileContent = "FTE>" + targetFTE.getEmpNumber() + ">" + targetFTE.getFirstName() + ">" + 
+                                targetFTE.getLastName() + ">" + targetFTE.getWorkLoc() + ">" + targetFTE.getDeductRate()
+                                + ">" + targetFTE.getSalary() + ">" + targetFTE.getGender();
+                        fileWriter.write(fileContent + System.lineSeparator());
                     } else if (bucket.get(j) instanceof PTE targetPTE){
-                        String fileContent = "PTE " + targetPTE.getEmpNumber() + " " + targetPTE.getFirstName() + " " + 
-                                targetPTE.getLastName() + " " + targetPTE.getWorkLoc() + " " + targetPTE.getDeductRate()
-                                + " " + targetPTE.getHourlyWage() + " " + targetPTE.getHoursPerWeek() + " " + targetPTE.getWeeksPerYear() + targetPTE.getGender();
-                        fileWriter.write(fileContent);
+                        String fileContent = "PTE>" + targetPTE.getEmpNumber() + ">" + targetPTE.getFirstName() + ">" + 
+                                targetPTE.getLastName() + ">" + targetPTE.getWorkLoc() + ">" + targetPTE.getDeductRate()
+                                + ">" + targetPTE.getHourlyWage() + ">" + targetPTE.getHoursPerWeek() + ">" + targetPTE.getWeeksPerYear() + ">" + targetPTE.getGender();
+                        fileWriter.write(fileContent + System.lineSeparator());
                     }
                 }
             }
@@ -128,7 +137,7 @@ public class SaveToFileFrame extends javax.swing.JFrame {
                 feedbackLabel.setText("An error occurred.");
                                
         }
-        feedbackLabel.resize (feedbackLabel.preferredSize());
+        
     }//GEN-LAST:event_saveEmpButtonActionPerformed
     
     public void setHashTable(MyHashTable theRefValue){
@@ -173,6 +182,7 @@ public class SaveToFileFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel feedbackLabel;
     private javax.swing.JLabel infoLabel;
+    private javax.swing.JLabel infoLabel1;
     private javax.swing.JButton saveEmpButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables

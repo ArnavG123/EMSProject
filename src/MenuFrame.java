@@ -37,11 +37,15 @@ public class MenuFrame extends javax.swing.JFrame {
         loadFromFileButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        titleLabel.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("All-In-One Employee Management System");
 
+        addEmpButton.setBackground(new java.awt.Color(0, 204, 51));
+        addEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        addEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         addEmpButton.setText("Add Employee");
         addEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,20 +53,33 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
+        deleteEmpButton.setBackground(new java.awt.Color(204, 0, 0));
+        deleteEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        deleteEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         deleteEmpButton.setText("Delete Employee");
+        deleteEmpButton.setMaximumSize(new java.awt.Dimension(108, 22));
+        deleteEmpButton.setMinimumSize(new java.awt.Dimension(108, 22));
         deleteEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteEmpButtonActionPerformed(evt);
             }
         });
 
+        editEmpButton.setBackground(new java.awt.Color(255, 204, 0));
+        editEmpButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        editEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         editEmpButton.setText("Edit Employee");
+        editEmpButton.setMaximumSize(new java.awt.Dimension(108, 22));
+        editEmpButton.setMinimumSize(new java.awt.Dimension(108, 22));
         editEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editEmpButtonActionPerformed(evt);
             }
         });
 
+        displayEmpsButton.setBackground(new java.awt.Color(153, 153, 255));
+        displayEmpsButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        displayEmpsButton.setForeground(new java.awt.Color(255, 255, 255));
         displayEmpsButton.setText("Display Emps.");
         displayEmpsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +87,9 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
+        saveToFileButtons.setBackground(new java.awt.Color(0, 204, 102));
+        saveToFileButtons.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        saveToFileButtons.setForeground(new java.awt.Color(255, 255, 255));
         saveToFileButtons.setText("Save To File");
         saveToFileButtons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +97,9 @@ public class MenuFrame extends javax.swing.JFrame {
             }
         });
 
+        loadFromFileButton.setBackground(new java.awt.Color(255, 153, 0));
+        loadFromFileButton.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        loadFromFileButton.setForeground(new java.awt.Color(255, 255, 255));
         loadFromFileButton.setText("Load From File");
         loadFromFileButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -88,41 +111,42 @@ public class MenuFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(85, Short.MAX_VALUE)
-                .addComponent(titleLabel)
-                .addGap(85, 85, 85))
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deleteEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(editEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(addEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(203, 203, 203)
+                .addContainerGap(52, Short.MAX_VALUE)
+                .addComponent(titleLabel)
+                .addGap(39, 39, 39))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(displayEmpsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveToFileButtons, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(loadFromFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(deleteEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(saveToFileButtons, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(displayEmpsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loadFromFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(11, 11, 11)
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addEmpButton)
-                    .addComponent(displayEmpsButton))
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(deleteEmpButton)
-                    .addComponent(saveToFileButtons))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editEmpButton)
-                    .addComponent(loadFromFileButton))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(displayEmpsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addEmpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deleteEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveToFileButtons, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(editEmpButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(loadFromFileButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();

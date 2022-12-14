@@ -222,6 +222,8 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
                         newEmpHoursPerWeek, newEmpWeeksPerYear, newEmpGender);
                 theHT.addToTable(theNewEmp);
                 msgLabel.setText("Added " + theNewEmp.getFirstName());
+            } else {
+                msgLabel.setText("Select an employee type");
             }
             
             

@@ -38,10 +38,14 @@ public class MyHashTable {
 
 
 	public void addToTable(EmployeeInfo theEmployee) {
-		int i = theEmployee.getEmpNumber() % buckets.length;
-		buckets[i].add(theEmployee);
-		return;
-		// Add the student referenced by theStudent to the hash table.
+            if (this.getFromTable(theEmployee.getEmpNumber()) == null){
+                int i = theEmployee.getEmpNumber() % buckets.length;
+                buckets[i].add(theEmployee);
+                
+            } else {
+                System.out.println("Duplicate Emp Num");   
+            }
+            // Add the student referenced by theStudent to the hash table.
 	}
 
 

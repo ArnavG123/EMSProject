@@ -1,5 +1,7 @@
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -44,6 +46,7 @@ public class LoadEmpsFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         fileChooser = new javax.swing.JFileChooser();
+        msgLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -54,28 +57,62 @@ public class LoadEmpsFrame extends javax.swing.JFrame {
             }
         });
 
+        msgLabel.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        msgLabel.setText("<Msg>");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(fileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 699, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(337, 337, 337)
+                        .addComponent(msgLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(fileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(fileChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(msgLabel)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
-        System.out.println("Success");
+        String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+        try {
+            File myObj = new File(filePath);
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] arrOfData = data.split(">");
+                if (arrOfData[0].equals("FTE")){
+                    FTE newFTE = new FTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
+                            arrOfData[3],arrOfData[4], Double.parseDouble(arrOfData[5]), Double.parseDouble(arrOfData[6]), arrOfData[7]);
+                    theHT.addToTable(newFTE);
+                } else if (arrOfData[0].equals("PTE")) {
+                    PTE newPTE = new PTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
+                            arrOfData[3],arrOfData[4], Double.parseDouble(arrOfData[5]), Double.parseDouble(arrOfData[6]), Double.parseDouble(arrOfData[7]), Double.parseDouble(arrOfData[8]), arrOfData[9]);
+                    theHT.addToTable(newPTE);
+                } else {
+                    
+                }
+            }
+            msgLabel.setText("Successfully Loaded Employees");
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_fileChooserActionPerformed
     
     public void setHashTable(MyHashTable theRefValue){
@@ -118,5 +155,6 @@ public class LoadEmpsFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFileChooser fileChooser;
+    private javax.swing.JLabel msgLabel;
     // End of variables declaration//GEN-END:variables
 }
