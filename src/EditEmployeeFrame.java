@@ -80,6 +80,8 @@ public class EditEmployeeFrame extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Edit values in the table, and click save, to edit an employee.");
 
+        saveEmpButton.setBackground(new java.awt.Color(255, 204, 51));
+        saveEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         saveEmpButton.setText("SAVE");
         saveEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

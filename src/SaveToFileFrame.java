@@ -47,6 +47,8 @@ public class SaveToFileFrame extends javax.swing.JFrame {
 
         infoLabel.setText("Employees will be saved to a .txt file");
 
+        saveEmpButton.setBackground(new java.awt.Color(0, 153, 204));
+        saveEmpButton.setForeground(new java.awt.Color(255, 255, 255));
         saveEmpButton.setText("SAVE");
         saveEmpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

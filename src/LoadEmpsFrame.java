@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -88,31 +89,35 @@ public class LoadEmpsFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fileChooserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fileChooserActionPerformed
-        String filePath = fileChooser.getSelectedFile().getAbsolutePath();
-        try {
-            File myObj = new File(filePath);
-            Scanner myReader = new Scanner(myObj);
-            while (myReader.hasNextLine()) {
-                String data = myReader.nextLine();
-                String[] arrOfData = data.split(">");
-                if (arrOfData[0].equals("FTE")){
-                    FTE newFTE = new FTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
+        if (evt.getActionCommand().equals(javax.swing.JFileChooser.APPROVE_SELECTION)) {
+            String filePath = fileChooser.getSelectedFile().getAbsolutePath();
+            try {
+                File myObj = new File(filePath);
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    String[] arrOfData = data.split(">");
+                    if (arrOfData[0].equals("FTE")){
+                        FTE newFTE = new FTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
                             arrOfData[3],arrOfData[4], Double.parseDouble(arrOfData[5]), Double.parseDouble(arrOfData[6]), arrOfData[7]);
-                    theHT.addToTable(newFTE);
-                } else if (arrOfData[0].equals("PTE")) {
-                    PTE newPTE = new PTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
+                        theHT.addToTable(newFTE);
+                    } else if (arrOfData[0].equals("PTE")) {
+                        PTE newPTE = new PTE(Integer.parseInt(arrOfData[1]), arrOfData[2], 
                             arrOfData[3],arrOfData[4], Double.parseDouble(arrOfData[5]), Double.parseDouble(arrOfData[6]), Double.parseDouble(arrOfData[7]), Double.parseDouble(arrOfData[8]), arrOfData[9]);
-                    theHT.addToTable(newPTE);
-                } else {
-                    
+                        theHT.addToTable(newPTE);
+                    }
                 }
+                msgLabel.setText("Successfully Loaded Employees");
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
             }
-            msgLabel.setText("Successfully Loaded Employees");
-            myReader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
+        } else if (evt.getActionCommand().equals(javax.swing.JFileChooser.CANCEL_SELECTION)) {
+            this.dispose();
+            System.out.println("cancel selection");
         }
+        
     }//GEN-LAST:event_fileChooserActionPerformed
     
     public void setHashTable(MyHashTable theRefValue){

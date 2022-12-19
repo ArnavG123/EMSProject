@@ -82,7 +82,7 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         salaryField.setText("Pay (#)");
 
         deductRateField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        deductRateField.setText("Deduct Rate (#)");
+        deductRateField.setText("Deduct Rate (0.##)");
 
         hoursPerWeekField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         hoursPerWeekField.setText("Hours Per Week (#)");
@@ -93,7 +93,9 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         workLocField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         workLocField.setText("Work Location");
 
+        addToTableButton.setBackground(new java.awt.Color(0, 204, 51));
         addToTableButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        addToTableButton.setForeground(new java.awt.Color(255, 255, 255));
         addToTableButton.setText("ADD");
         addToTableButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

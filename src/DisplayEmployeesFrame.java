@@ -40,11 +40,21 @@ public class DisplayEmployeesFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Type", "Emp. Num.", "First Name", "Last Name", "Gender", "Work Location", "Pay", "Hours per Week", "Weeks per Year", "Deduct Rate"
+                "Type", "Emp. Num.", "First Name", "Last Name", "Gender", "Work Location", "Pay", "Hours per Week", "Weeks per Year", "Deduct Rate", "Net Income"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(employeeAttributes);
 
+        displayButton.setBackground(new java.awt.Color(153, 102, 255));
+        displayButton.setForeground(new java.awt.Color(255, 255, 255));
         displayButton.setText("DISPLAY");
         displayButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,7 +67,7 @@ public class DisplayEmployeesFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 829, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
@@ -69,8 +79,8 @@ public class DisplayEmployeesFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(displayButton)
-                .addGap(41, 41, 41)
+                .addComponent(displayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -87,10 +97,12 @@ public class DisplayEmployeesFrame extends javax.swing.JFrame {
                 EmployeeInfo targetEmp = bucket.get(j);
                 if (targetEmp instanceof FTE targetFTE){
                     model.addRow(new Object[]{"FTE",targetFTE.getEmpNumber(), targetFTE.getFirstName(), targetFTE.getLastName(),
-                    targetFTE.getGender(), targetFTE.getWorkLoc(), targetFTE.getSalary(), "-1", "-1", targetFTE.getDeductRate()});
+                    targetFTE.getGender(), targetFTE.getWorkLoc(), targetFTE.getSalary(), "-1", "-1", targetFTE.getDeductRate(), 
+                    targetFTE.getSalary()*(1-targetFTE.getDeductRate())});
                 } else if (targetEmp instanceof PTE targetPTE) {
                     model.addRow(new Object[]{"PTE",targetPTE.getEmpNumber(), targetPTE.getFirstName(), targetPTE.getLastName(),
-                    targetPTE.getGender(),targetPTE.getWorkLoc(), targetPTE.getHourlyWage(), targetPTE.getHoursPerWeek(), targetPTE.getWeeksPerYear(), targetEmp.getDeductRate()});
+                    targetPTE.getGender(),targetPTE.getWorkLoc(), targetPTE.getHourlyWage(), targetPTE.getHoursPerWeek(), targetPTE.getWeeksPerYear(), targetEmp.getDeductRate(),
+                    targetPTE.getHourlyWage()*targetPTE.getHoursPerWeek()*targetPTE.getWeeksPerYear()*(1-targetPTE.getDeductRate())});
                     
                 }
                 rowIndex++;
