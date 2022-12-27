@@ -187,12 +187,14 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
     private void selectFTEButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFTEButtonActionPerformed
         hoursPerWeekField.setVisible(false);
         weeksPerYearField.setVisible(false);
+        salaryField.setText("Annual Pay (#)");
         
     }//GEN-LAST:event_selectFTEButtonActionPerformed
 
     private void selectPTEButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectPTEButtonActionPerformed
         hoursPerWeekField.setVisible(true);
-        weeksPerYearField.setVisible(true);        
+        weeksPerYearField.setVisible(true); 
+        salaryField.setText("Hourly Pay (#)");
     }//GEN-LAST:event_selectPTEButtonActionPerformed
 
     private void onAddButtonClick(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onAddButtonClick
@@ -235,6 +237,7 @@ public class AddEmployeeFrame extends javax.swing.JFrame {
         weeksPerYearField.setVisible(true);
         hoursPerWeekField.setVisible(true);
         employeeType.clearSelection();
+        salaryField.setText("Pay (#)");
         
     }//GEN-LAST:event_onAddButtonClick
 

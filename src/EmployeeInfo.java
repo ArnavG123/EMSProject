@@ -69,7 +69,12 @@ public class EmployeeInfo {
 
 
 	public void setDeductRate(double deductRate) {
-		this.deductRate = deductRate;
+		if (deductRate <= 1){
+                    this.deductRate = deductRate;
+                } else {
+                    this.deductRate = 1;
+                }
+                
 	}
         
         public String getGender() {

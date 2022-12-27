@@ -48,17 +48,17 @@ public class RemoveEmpFrame extends javax.swing.JFrame {
 
         employeeAttributes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {" ---", "---", "---", "---", "---", null}
+                {" ---", "---", "---", "---", "---"}
             },
             new String [] {
-                "Type", "First Name", "Last Name", "Gender", "Work Location", "Salary"
+                "Type", "First Name", "Last Name", "Gender", "Work Location"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {

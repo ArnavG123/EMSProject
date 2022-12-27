@@ -42,12 +42,12 @@
                       <Component id="titleLabel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="101" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="79" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
               <Component id="infoLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -108,7 +108,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="infoLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Files are stored along with files of this application"/>
+        <Property name="text" type="java.lang.String" value="Files are stored along with project files of this application"/>
       </Properties>
     </Component>
   </SubComponents>

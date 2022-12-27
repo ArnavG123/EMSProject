@@ -1,3 +1,0 @@
-FTE>1>First Name>Last Name>Work Location>1.0>1.0>Gender
-FTE>2>First Name>Last Name>Work Location>1.0>1.0>Gender
-FTE>3>First Name>Last Name>Work Location>0.1>0.0>Gender
